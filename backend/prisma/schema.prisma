@@ -1,0 +1,77 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("admin") // admin, author
+  createdAt    DateTime @default(now())
+}
+
+model News {
+  id        String   @id @default(uuid())
+  title     String
+  slug      String   @unique
+  summary   String
+  content   String   // Markdown or Rich Text
+  image     String?  // Image path or URL
+  category  String   @default("Geral")
+  author    String   @default("Assessoria")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  category    String   // ex: "Saúde", "Educação", "Escola Segura"
+  description String
+  status      String   // ex: "Protocolado", "Aprovado", "Em Tramitação"
+  code        String?  // ex: "PL 123/2024"
+  link        String?  // link to Camara Municipal website
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  whatsapp  String
+  subject   String   // Projeto de Lei | Sugestão | Reclamação | Ofício | Solicitação
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Suggestion {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  whatsapp  String
+  topic     String   // ex: "Educação", "Saúde"
+  message   String   // Suggestion text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Report {
+  id               String   @id @default(uuid())
+  isAnonymous      Boolean  @default(true)
+  reporterName     String?
+  reporterEmail    String?
+  reporterWhatsapp String?
+  description      String
+  location         String?  // neighborhood or place
+  status           String   @default("Pendente") // Pendente, Em Análise, Resolvido
+  isRead           Boolean  @default(false)
+  createdAt        DateTime @default(now())
+}
