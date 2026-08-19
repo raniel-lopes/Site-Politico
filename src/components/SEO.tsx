@@ -11,7 +11,7 @@ interface SEOProps {
 export default function SEO({ title, description, image, url }: SEOProps) {
   useEffect(() => {
     // Page Title
-    const fullTitle = `${title} | ${candidateConfig.name} - ${candidateConfig.targetRole}`;
+    const fullTitle = `${title} | ${candidateConfig.name} - ${candidateConfig.urnNumber || candidateConfig.targetRole}`;
     document.title = fullTitle;
 
     // Meta Description

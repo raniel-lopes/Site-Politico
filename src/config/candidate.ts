@@ -9,7 +9,7 @@ export const candidateConfig = {
   state: "Bahia",
   year: "2026",
   party: "PSDB", // Party name
-  urnNumber: "", // Empty for pre-campaign, fill when defined
+  urnNumber: "45300", // Empty for pre-campaign, fill when defined
   whatsappNumber: "+55 71 99237-8192", // Gabinete / Assessoria WhatsApp
   email: "contato@andersonninho.com.br",
   phone: "(71) 99237-8192",
