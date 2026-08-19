@@ -36,7 +36,7 @@ export default function SugiraEmenda() {
       });
       setFormStatus({
         type: 'success',
-        message: 'Sua sugestão de emenda parlamentar foi registrada! A equipe técnica do mandato irá analisar a viabilidade orçamentária.'
+        message: 'Sua sugestão de projeto de lei foi registrada! A equipe técnica do mandato irá analisar a proposta.'
       });
       setFormData({ name: '', email: '', whatsapp: '', topic: 'Saúde', message: '' });
     } catch (err: any) {
@@ -62,8 +62,8 @@ export default function SugiraEmenda() {
   return (
     <>
       <SEO 
-        title="Sugerir Emenda" 
-        description="Participe do orçamento de Salvador. Envie suas sugestões de emendas parlamentares para postos de saúde, escolas e melhorias em seu bairro."
+        title="Sugerir Projeto de Lei" 
+        description="Participe da melhoria de Salvador. Envie suas propostas de projeto de lei para o nosso mandato."
       />
 
       {/* Page Header */}
@@ -74,10 +74,10 @@ export default function SugiraEmenda() {
             Democracia Participativa
           </span>
           <h1 className="text-4xl md:text-6xl font-display font-extrabold tracking-tight">
-            Sugira uma Emenda
+            Sugira um Projeto de Lei
           </h1>
           <p className="text-white/70 text-sm md:text-base max-w-xl mx-auto mt-4 leading-relaxed">
-            Ajude a definir o destino de recursos públicos. Aponte melhorias prioritárias para o seu bairro e região.
+            Ajude a propor novas leis e melhorias para Salvador. Envie sua ideia e faça a diferença.
           </p>
         </div>
       </section>
@@ -96,18 +96,18 @@ export default function SugiraEmenda() {
                   <Heart size={28} />
                 </span>
                 <h3 className="text-2xl font-display font-extrabold tracking-tight">
-                  O que é uma Emenda Parlamentar?
+                  Como funciona a Proposta de Lei?
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Trata-se de uma cota orçamentária anual que os parlamentares têm direito de direcionar para finalidades específicas. Nosso mandato adota critérios transparentes e ouve a comunidade antes de destinar emendas.
+                  Qualquer cidadão pode sugerir uma ideia de lei. O vereador Anderson Ninho recebe sua proposta, analisa a viabilidade com a assessoria jurídica e pode transformá-la em um projeto de lei oficial na Câmara de Salvador.
                 </p>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Indique a necessidade exata (ex: reforma de posto de saúde, fornecimento de computadores para cursinhos, instalação de lixeiras, etc.).
+                  Descreva a sua ideia de lei ou a demanda do seu bairro que necessita de regulamentação ou de um projeto legislativo.
                 </p>
               </div>
 
               <div className="relative z-10 border-t border-white/10 pt-6 mt-8 text-xs text-white/50 leading-relaxed">
-                *Todas as sugestões recebidas passam por um crivo técnico de viabilidade orçamentária executado pelo Gabinete Mariana Souza.
+                *Todas as sugestões recebidas passam por análise técnica e jurídica executada pelo Gabinete do Vereador Anderson Ninho.
               </div>
             </div>
 
@@ -170,7 +170,7 @@ export default function SugiraEmenda() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="topic" className="text-xs font-bold text-brand-blue-dark uppercase tracking-wider">Área/Tema da Emenda</label>
+                  <label htmlFor="topic" className="text-xs font-bold text-brand-blue-dark uppercase tracking-wider">Área/Tema do Projeto</label>
                   <select
                     id="topic"
                     name="topic"
@@ -193,7 +193,7 @@ export default function SugiraEmenda() {
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Descreva o local exato (bairro, rua, praça ou instituição) e qual o benefício esperado com essa emenda parlamentar..."
+                    placeholder="Descreva a sua proposta de projeto de lei, detalhando o problema que ela visa resolver e o benefício esperado para a nossa comunidade..."
                     className="w-full px-4 py-3 border border-brand-gray-300 rounded-lg text-sm outline-none focus:border-brand-blue transition-colors resize-none bg-brand-gray-50/50"
                   ></textarea>
                 </div>
@@ -203,7 +203,7 @@ export default function SugiraEmenda() {
                   disabled={isSubmitting}
                   className="w-full btn-pink flex items-center justify-center gap-2 py-4 disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Registrando...' : 'Enviar Sugestão de Emenda'}
+                  {isSubmitting ? 'Registrando...' : 'Enviar Ideia de Projeto de Lei'}
                   <Send size={16} />
                 </button>
               </form>

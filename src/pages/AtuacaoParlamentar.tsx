@@ -3,7 +3,6 @@ import SEO from '../components/SEO.js';
 import { 
   Building, 
   Map, 
-  DollarSign, 
   Clock, 
   Heart, 
   ShieldCheck, 
@@ -14,7 +13,6 @@ export default function AtuacaoParlamentar() {
   const statsList = [
     { label: "Projetos de Lei Protocolados", value: candidateConfig.stats.billsProtocolled, icon: Briefcase, color: "text-brand-blue" },
     { label: "Projetos Aprovados", value: candidateConfig.stats.billsApproved, icon: ShieldCheck, color: "text-green-600" },
-    { label: "Emendas Parlamentares", value: candidateConfig.stats.emendasAllocated, icon: DollarSign, color: "text-brand-pink-vibrant" },
     { label: "Bairros & Comunidades Atendidos", value: candidateConfig.stats.communitiesAssisted, icon: Map, color: "text-indigo-600" },
     { label: "Audiências Públicas Lideradas", value: candidateConfig.stats.publicHearings, icon: Building, color: "text-amber-600" },
     { label: "Indicações Aprovadas", value: candidateConfig.stats.approvedIndications, icon: Clock, color: "text-teal-600" }
@@ -24,7 +22,7 @@ export default function AtuacaoParlamentar() {
     <>
       <SEO 
         title="Atuação Parlamentar" 
-        description="Prestação de contas do mandato de Mariana Souza: projetos de lei, indicações, emendas parlamentares e comunidades beneficiadas." 
+        description={`Prestação de contas do mandato de ${candidateConfig.name}: projetos de lei, indicações e comunidades beneficiadas.`} 
       />
 
       {/* Page Header */}
@@ -83,72 +81,7 @@ export default function AtuacaoParlamentar() {
         </div>
       </section>
 
-      {/* Resource Allocation Breakdown */}
-      <section className="py-24 bg-brand-gray-50 border-t border-b border-brand-gray-200">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Text description */}
-            <div className="lg:col-span-6 flex flex-col gap-6">
-              <span className="text-brand-pink-vibrant font-display font-semibold uppercase tracking-wider text-sm">Destinação de Recursos</span>
-              <h2 className="text-3xl md:text-4xl font-display font-extrabold text-brand-blue-dark tracking-tight">
-                Como Nossas Emendas Ajudaram Salvador
-              </h2>
-              <p className="text-brand-gray-600 leading-relaxed">
-                As emendas parlamentares são recursos do orçamento do município direcionados pelo mandato diretamente para melhorias em hospitais, escolas, postos de saúde e projetos sociais. Priorizamos a aplicação com base em assembleias populares e demandas dos bairros.
-              </p>
-              
-              <div className="flex flex-col gap-4 mt-2">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-1.5 bg-brand-pink rounded-full"></div>
-                  <span className="text-sm font-semibold text-brand-blue-dark">Saúde Básica e Especializada (40%)</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-1.5 bg-brand-blue rounded-full"></div>
-                  <span className="text-sm font-semibold text-brand-blue-dark">Inclusão Digital e Educação Tecnológica (30%)</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-1.5 bg-brand-blue-electric rounded-full"></div>
-                  <span className="text-sm font-semibold text-brand-blue-dark">Projetos Sociais e Direitos das Minorias (20%)</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-1.5 bg-brand-gray-300 rounded-full"></div>
-                  <span className="text-sm font-semibold text-brand-blue-dark">Infraestrutura Comunitária (10%)</span>
-                </div>
-              </div>
-            </div>
 
-            {/* Visual Chart Mockup */}
-            <div className="lg:col-span-6 bg-white p-8 rounded-3xl border border-brand-blue/5 shadow-xl flex flex-col gap-6">
-              <h3 className="font-display font-bold text-xl text-brand-blue-dark mb-2">Total de Emendas Executadas</h3>
-              <div className="flex items-end justify-between gap-4 h-48 pt-6 border-b border-brand-gray-200">
-                <div className="flex flex-col items-center gap-2 flex-1">
-                  <div className="w-full bg-brand-pink rounded-t-lg transition-all hover:opacity-90" style={{ height: '80%' }}></div>
-                  <span className="text-[10px] text-brand-gray-600 font-bold uppercase">Saúde</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 flex-1">
-                  <div className="w-full bg-brand-blue rounded-t-lg transition-all hover:opacity-90" style={{ height: '60%' }}></div>
-                  <span className="text-[10px] text-brand-gray-600 font-bold uppercase">Educação</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 flex-1">
-                  <div className="w-full bg-brand-blue-electric rounded-t-lg transition-all hover:opacity-90" style={{ height: '40%' }}></div>
-                  <span className="text-[10px] text-brand-gray-600 font-bold uppercase">Social</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 flex-1">
-                  <div className="w-full bg-brand-gray-300 rounded-t-lg transition-all hover:opacity-90" style={{ height: '20%' }}></div>
-                  <span className="text-[10px] text-brand-gray-600 font-bold uppercase">Infra</span>
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-between text-xs text-brand-gray-600 font-semibold pt-2">
-                <span>Dados de Exercício: 2021-2025</span>
-                <span className="text-brand-pink-vibrant">Soma: {candidateConfig.stats.emendasAllocated}</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* Performance Reports PDF / Materials */}
       <section className="py-24 bg-white">

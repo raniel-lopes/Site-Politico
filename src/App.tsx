@@ -58,7 +58,7 @@ function AppContent() {
           <Route path="/videos" element={<Videos />} />
           <Route path="/materiais-de-campanha" element={<MateriaisCampanha />} />
           <Route path="/contato" element={<Contato />} />
-          <Route path="/sugira-uma-emenda" element={<SugiraEmenda />} />
+          <Route path="/sugira-um-projeto-de-lei" element={<SugiraEmenda />} />
           <Route path="/faca-uma-denuncia" element={<FacaDenuncia />} />
 
           {/* Admin Views */}

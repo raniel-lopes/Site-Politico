@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -9,11 +9,11 @@ import {
 import { candidateConfig } from '../config/candidate.js';
 import { apiFetch } from '../utils/api.js';
 import SEO from '../components/SEO.js';
-import NewsCard from '../components/NewsCard.js';
+// import NewsCard from '../components/NewsCard.js';
 
 export default function Home() {
-  const [news, setNews] = useState<any[]>([]);
-  const [loadingNews, setLoadingNews] = useState(true);
+  // const [news, setNews] = useState<any[]>([]);
+  // const [loadingNews, setLoadingNews] = useState(true);
   
   // Form State
   const [formData, setFormData] = useState({
@@ -30,6 +30,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Fetch latest news on load
+  /*
   useEffect(() => {
     async function loadLatestNews() {
       try {
@@ -43,6 +44,7 @@ export default function Home() {
     }
     loadLatestNews();
   }, []);
+  */
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -133,10 +135,10 @@ export default function Home() {
               
               <div className="text-brand-gray-600 space-y-4 leading-relaxed text-base">
                 <p>
-                  Minha história de luta começou nas comunidades de Salvador. Vivenciei as carências do transporte, a falta de oportunidades e vi de perto o poder transformador de projetos comunitários.
+                  Minha caminhada começou de forma simples como zelador de escola nas comunidades de Salvador. Vivenciei de perto os desafios enfrentados pela nossa gente e a força do trabalho social de base.
                 </p>
                 <p className="font-semibold text-brand-blue-dark">
-                  “Meu propósito como vereador foi dar voz à nossa gente de Salvador. Como pré-candidato a {candidateConfig.targetRole}, quero levar esse compromisso para a Bahia inteira, descentralizando oportunidades.”
+                  “Meu propósito sempre foi ser o Empregado do Povo, defendendo melhorias reais de infraestrutura, saneamento básico, saúde e educação para quem mais precisa.”
                 </p>
                 <p>
                   {candidateConfig.biographySummary.substring(0, 320)}...
@@ -150,7 +152,7 @@ export default function Home() {
                 </Link>
                 <span className="text-brand-gray-600 text-sm font-semibold flex items-center gap-2">
                   <span className="w-2.5 h-2.5 bg-brand-pink-vibrant rounded-full animate-ping"></span>
-                  De {candidateConfig.role} a {candidateConfig.targetRole}
+                  De Zelador a Vereador
                 </span>
               </div>
             </div>
@@ -211,15 +213,16 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link to="/nossos-projetos" className="btn-secondary inline-flex items-center gap-2">
-              Ver Todos os Projetos de Lei e Emendas
+              Ver Todos os Projetos de Lei
               <ArrowRight size={16} />
             </Link>
           </div>
 
         </div>
       </section>
-
+ 
       {/* 4. ESTATÍSTICAS / NÚMEROS DO MANDATO */}
+      {/*
       <section className="py-20 bg-brand-blue-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#ec4899_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -244,14 +247,6 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <span className="font-display font-black text-4xl md:text-5xl text-brand-pink-vibrant">
-                {candidateConfig.stats.emendasAllocated}
-              </span>
-              <span className="text-white/60 text-xs md:text-sm font-semibold uppercase tracking-wider">
-                Emendas Alocadas
-              </span>
-            </div>
 
             <div className="flex flex-col gap-2">
               <span className="font-display font-black text-4xl md:text-5xl text-brand-pink-vibrant">
@@ -261,7 +256,7 @@ export default function Home() {
                 Comunidades Ouvidas
               </span>
             </div>
-
+{/* 
             <div className="flex flex-col gap-2">
               <span className="font-display font-black text-4xl md:text-5xl text-brand-pink-vibrant">
                 {candidateConfig.stats.publicHearings}
@@ -269,7 +264,7 @@ export default function Home() {
               <span className="text-white/60 text-xs md:text-sm font-semibold uppercase tracking-wider">
                 Audiências Públicas
               </span>
-            </div>
+            </div> 
 
             <div className="flex flex-col gap-2">
               <span className="font-display font-black text-4xl md:text-5xl text-brand-pink-vibrant">
@@ -292,12 +287,15 @@ export default function Home() {
 
         </div>
       </section>
+*/}
 
-      {/* 5. SEÇÃO DE NOTÍCIAS */}
+      {/* 5. SEÇÃO DE NOTÍCIAS */} 
+
+      {/* 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           
-          {/* Section Header */}
+          /* Section Header *
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div className="flex flex-col gap-2">
               <span className="text-brand-pink-vibrant font-display font-semibold uppercase tracking-wider text-sm">Notícias</span>
@@ -311,7 +309,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Cards Grid */}
+          /* Cards Grid *
           {loadingNews ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((n) => (
@@ -330,7 +328,7 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            /* Mock news for immediate gorgeous preview */
+            /* Mock news for immediate gorgeous preview *
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <NewsCard article={{
                 id: "1",
@@ -367,7 +365,7 @@ export default function Home() {
 
         </div>
       </section>
-
+*/}
       {/* 6. CONTATO / PARTICIPAÇÃO POPULAR */}
       <section className="py-24 bg-brand-gray-50 border-t border-brand-gray-200">
         <div className="container mx-auto px-4 md:px-6">
@@ -405,8 +403,8 @@ export default function Home() {
 
               {/* Botões de atalho */}
               <div className="relative z-10 flex flex-col gap-3 mt-12">
-                <Link to="/sugira-uma-emenda" className="flex items-center justify-center gap-2 py-3 bg-brand-pink hover:bg-brand-pink-vibrant text-white font-semibold rounded-lg text-sm transition-colors">
-                  Sugira uma Emenda Orçamentária
+                <Link to="/sugira-um-projeto-de-lei" className="flex items-center justify-center gap-2 py-3 bg-brand-pink hover:bg-brand-pink-vibrant text-white font-semibold rounded-lg text-sm transition-colors">
+                  Sugira um Projeto de Lei
                 </Link>
                 <Link to="/faca-uma-denuncia" className="flex items-center justify-center gap-2 py-3 bg-white/10 border border-white/20 hover:bg-white/20 text-white font-semibold rounded-lg text-sm transition-colors">
                   Denúncia de Violação de Direitos

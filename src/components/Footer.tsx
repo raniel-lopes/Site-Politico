@@ -84,11 +84,11 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h3 className="font-display font-semibold text-lg text-white mb-1">Participação Popular</h3>
             <p className="text-sm text-white/70 leading-relaxed mb-1">
-              Participe do nosso mandato. Envie sugestões de projetos e emendas ou denuncie irregularidades.
+              Participe do nosso mandato. Envie sugestões de projetos de lei ou denuncie irregularidades.
             </p>
             <div className="flex flex-col gap-2">
-              <Link to="/sugira-uma-emenda" className="inline-flex items-center justify-center py-2 px-4 bg-brand-blue border border-brand-pink/20 hover:bg-brand-pink/15 text-white font-semibold text-xs rounded transition-colors">
-                Sugerir Emenda
+              <Link to="/sugira-um-projeto-de-lei" className="inline-flex items-center justify-center py-2 px-4 bg-brand-blue border border-brand-pink/20 hover:bg-brand-pink/15 text-white font-semibold text-xs rounded transition-colors">
+                Sugerir Projeto de Lei
               </Link>
               <Link to="/faca-uma-denuncia" className="inline-flex items-center justify-center py-2 px-4 bg-transparent border border-white/20 hover:border-white/40 text-white font-semibold text-xs rounded transition-colors">
                 Fazer Denúncia Segura
@@ -103,14 +103,13 @@ export default function Footer() {
           <div>
             <p>© {currentYear} {candidateConfig.name} - Mandato Parlamentar de Salvador. Todos os direitos reservados.</p>
             <p className="mt-1 font-mono text-[10px]">
-              Desenvolvido com carinho • Salvador, Bahia
+              CNPJ da Campanha: 68.283.201/0001-87 • Salvador, Bahia
             </p>
           </div>
           
-          {/* Electoral Compliance Box */}
           <div className="max-w-md md:text-right text-[10px] leading-relaxed border border-white/10 p-2.5 rounded bg-white/5">
             <span className="font-bold text-brand-pink-vibrant uppercase block mb-1">Conformidade Eleitoral (TSE)</span>
-            Este site possui caráter informativo e de prestação de contas de mandato parlamentar, em estrita conformidade com a Lei das Eleições nº 9.504/1997. Não há pedido de voto explícito ou propaganda antecipada vedada.
+            Este site possui caráter informativo e de prestação de contas de mandato parlamentar, em estrita conformidade com a Lei das Eleições nº 9.504/1997. CNPJ da Campanha: 68.283.201/0001-87.
           </div>
         </div>
 

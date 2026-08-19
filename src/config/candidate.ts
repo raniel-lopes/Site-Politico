@@ -8,11 +8,11 @@ export const candidateConfig = {
   targetRole: "Deputado Estadual",
   state: "Bahia",
   year: "2026",
-  party: "Partido Social Democrático - PSD", // Party name
+  party: "PSDB", // Party name
   urnNumber: "", // Empty for pre-campaign, fill when defined
-  whatsappNumber: "+5571999999999", // Gabinete / Assessoria WhatsApp
+  whatsappNumber: "+55 71 99237-8192", // Gabinete / Assessoria WhatsApp
   email: "contato@andersonninho.com.br",
-  phone: "(71) 3320-1234",
+  phone: "(71) 99237-8192",
   address: "Câmara Municipal de Salvador, Praça Thomé de Souza, s/n - Centro, Salvador - BA, CEP 40020-010",
   googleMapsLink: "https://maps.google.com/?q=Camara+Municipal+de+Salvador",
   
@@ -21,7 +21,7 @@ export const candidateConfig = {
     facebook: "https://facebook.com/andersonninhoba",
     twitter: "https://x.com/andersonninhoba",
     youtube: "https://youtube.com/andersonninhoba",
-    whatsapp: "https://wa.me/5571999999999"
+    whatsapp: "https://wa.me/5571992378192"
   },
 
   // Main banner messages
@@ -87,21 +87,21 @@ export const candidateConfig = {
   stats: {
     billsProtocolled: 34,
     billsApproved: 12,
-    emendasAllocated: "R$ 4.8M",
     communitiesAssisted: 78,
     publicHearings: 24,
     approvedIndications: 156
   },
 
   // Timeline for "Quem Sou Eu" biography
-  biographySummary: "Nascido na periferia de Salvador, Anderson Ninho cresceu acompanhando as lutas da sua comunidade por saneamento e transporte de qualidade. Cientista Social formado pela UFBA, iniciou sua atuação liderando projetos comunitários de alfabetização e capacitação tecnológica para jovens. Em 2020, foi eleito Vereador de Salvador com votação expressiva, destacando-se como um dos parlamentares mais atuantes da Câmara Municipal. Agora, com o apoio de lideranças de diversos municípios baianos, apresenta sua pré-candidatura a Deputado Estadual para lutar por saúde integrada, inovação e educação pública em toda a Bahia.",
+  biographySummary: "Anderson Ninho, o Empregado do Povo, é natural de Salvador, nasceu no bairro de Pau da Lima e reside por mais de três décadas no bairro de Dom Avelar. Atualmente exercendo o mandato de vereador pela 19ª legislatura, iniciou sua vida profissional como zelador de escola e possui formação em Gestão Pública. Com uma trajetória marcada pelo trabalho social desde a juventude e defesa das comunidades de Pau da Lima e Dom Avelar, foi reeleito em 2024 como o 7º vereador mais votado da Bahia e, em abril de 2026, filiou-se ao PSDB.",
   
   timeline: [
-    { year: "1988", title: "Origem", description: "Nascimento em Salvador, criado na comunidade de Pernambués." },
-    { year: "2010", title: "Liderança Estudantil e UFBA", description: "Ingressa em Ciências Sociais na UFBA, participando ativamente de cursinhos populares de alfabetização." },
-    { year: "2015", title: "Fundação do Instituto Tecnologia Ativa", description: "Inicia ONG para ensinar programação básica e inclusão digital para jovens da periferia." },
-    { year: "2020", title: "Eleição para Vereador", description: "Eleito com 6.450 votos em Salvador, focando seu mandato em saúde, inclusão e educação digital." },
-    { year: "2024", title: "Mandato Inteligente e Entrega de PLs", description: "Aprovação de projetos pioneiros como o 'Programa Tecnologia Ativa' e 'Casa do Autista'." },
-    { year: "2026", title: "Pré-Candidatura a Deputada Estadual", description: "Ampliando o trabalho de Salvador para toda a Bahia, defendendo um mandato tecnológico e humano." }
+    { year: "Origem", title: "Raízes em Salvador", description: "Natural de Salvador, nasceu no bairro de Pau da Lima e reside por mais de três décadas no bairro de Dom Avelar." },
+    { year: "Início", title: "Zelador de Escola", description: "Começou a sua vida profissional de forma humilde como zelador de escola antes de chegar à vereança na capital." },
+    { year: "2003", title: "Trabalho Social", description: "Demonstrou vocação social desde a adolescência, participando de movimentos históricos como a 'Revolta do Buzu' e pleiteando pavimentação e saneamento." },
+    { year: "Estudos", title: "Gestão Pública e Fé", description: "Tornou-se evangélico e sentiu o chamado para servir à sociedade. Graduou-se em Gestão Pública para exercer sua missão com excelência." },
+    { year: "2020", title: "Eleito Vereador", description: "Eleito em primeiro lugar no partido PDT com 5.289 votos, iniciando sua trajetória parlamentar na 19ª legislatura de Salvador." },
+    { year: "2024", title: "Reeleição Histórica", description: "Reeleito com expressivos 16.203 votos, consagrando-se como o 7º vereador mais votado de toda a Bahia." },
+    { year: "2026", title: "Novo Partido: PSDB", description: "Em abril de 2026, filiou-se ao PSDB para seguir defendendo as causas das comunidades e de Salvador." }
   ]
 };
