@@ -4,6 +4,7 @@ import { Search, ChevronLeft, ChevronRight, RefreshCw, FileText } from 'lucide-r
 import { apiFetch } from '../utils/api.js';
 import SEO from '../components/SEO.js';
 import NewsCard from '../components/NewsCard.js';
+import { candidateConfig } from '../config/candidate.js';
 
 export default function Noticias() {
   const [articles, setArticles] = useState<any[]>([]);
@@ -28,15 +29,14 @@ export default function Noticias() {
     async function loadNews() {
       setLoading(true);
       try {
-        const query = new URLSearchParams();
-        query.append('page', currentPage.toString());
-        query.append('limit', '9');
-        if (searchQuery) query.append('search', searchQuery);
-        if (selectedCategory && selectedCategory !== 'Geral') {
-          query.append('category', selectedCategory);
-        }
+        const queryStr = new URLSearchParams({
+          page: currentPage.toString(),
+          limit: '6',
+          category: selectedCategory === 'Geral' ? '' : selectedCategory,
+          search: searchQuery
+        }).toString();
 
-        const data = await apiFetch(`/news?${query.toString()}`);
+        const data = await apiFetch(`/news?${queryStr}`);
         setArticles(data.news || []);
         setTotalPages(data.pagination?.pages || 1);
       } catch (err) {
@@ -45,9 +45,9 @@ export default function Noticias() {
         const mockNews = [
           {
             id: "1",
-            title: "Mariana Souza defende a ampliação do programa Tecnologia Ativa nas escolas estaduais da Bahia",
-            slug: "mariana-defende-tecnologia-ativa-na-bahia",
-            summary: "Após aprovar o projeto em Salvador, a vereadora reuniu-se com lideranças educacionais de Feira de Santana para planejar a extensão do acesso digital para alunos da rede estadual.",
+            title: `${candidateConfig.name} defende a ampliação do programa Tecnologia Ativa nas escolas estaduais da Bahia`,
+            slug: "ninho-defende-tecnologia-ativa-na-bahia",
+            summary: "Após aprovar o projeto em Salvador, o vereador reuniu-se com lideranças educacionais de Feira de Santana para planejar a extensão do acesso digital para alunos da rede estadual.",
             image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop",
             category: "Tecnologia Ativa",
             author: "Assessoria",
@@ -55,7 +55,7 @@ export default function Noticias() {
           },
           {
             id: "2",
-            title: "Gabinete Mariana Souza aprova recurso de R$ 1.2 milhão para estruturar a Casa do Autista em Salvador",
+            title: `Gabinete de ${candidateConfig.name} aprova recurso de R$ 1.2 milhão para estruturar a Casa do Autista em Salvador`,
             slug: "aprovado-recurso-casa-do-autista",
             summary: "Os fundos municipais serão direcionados à aquisição de equipamentos clínicos e qualificação da equipe técnica. A proposta visa tornar-se um modelo estadual de acolhimento para o autismo.",
             image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=800&auto=format&fit=crop",
@@ -65,9 +65,9 @@ export default function Noticias() {
           },
           {
             id: "3",
-            title: "Pelo interior: Mariana Souza visita cooperativas de agricultura familiar no Recôncavo Baiano",
+            title: `Pelo interior: ${candidateConfig.name} visita cooperativas de agricultura familiar no Recôncavo Baiano`,
             slug: "visita-interior-cooperativas",
-            summary: "Ouvindo demandas dos produtores rurais de Santo Amaro e Cruz das Almas, a pré-candidata debateu políticas de incentivo e linhas de crédito para jovens no campo.",
+            summary: "Ouvindo demandas dos produtores rurais de Santo Amaro e Cruz das Almas, o pré-candidata debateu políticas de incentivo e linhas de crédito para jovens no campo.",
             image: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?q=80&w=800&auto=format&fit=crop",
             category: "Atuação",
             author: "Assessoria",
@@ -75,8 +75,8 @@ export default function Noticias() {
           },
           {
             id: "4",
-            title: "Mariana Souza propõe criação do Botão do Comerciante para reforçar a segurança em Salvador",
-            slug: "mariana-propoe-botao-do-comerciante",
+            title: `${candidateConfig.name} propõe criação do Botão do Comerciante para reforçar a segurança em Salvador`,
+            slug: "ninho-propoe-botao-do-comerciante",
             summary: "O projeto de lei visa disponibilizar um sistema de pânico silencioso nos estabelecimentos comerciais, integrando a segurança dos pequenos lojistas aos órgãos municipais.",
             image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
             category: "Segurança",
@@ -137,7 +137,7 @@ export default function Noticias() {
     <>
       <SEO 
         title="Notícias" 
-        description="Acompanhe as últimas notícias, discursos, ações e posicionamentos oficiais do mandato da vereadora Mariana Souza." 
+        description={`Acompanhe as últimas notícias, discursos, ações e posicionamentos oficiais do mandato do vereador ${candidateConfig.name}.`} 
       />
 
       {/* Page Header */}

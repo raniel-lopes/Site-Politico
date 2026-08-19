@@ -1,13 +1,14 @@
 import SEO from '../components/SEO.js';
 import { Play } from 'lucide-react';
+import { candidateConfig } from '../config/candidate.js';
 
 export default function Videos() {
   const videosList = [
     {
-      title: "Balanço Geral de Mandato como Vereadora em Salvador",
+      title: `Balanço Geral de Mandato como ${candidateConfig.role} em Salvador`,
       youtubeId: "dQw4w9WgXcQ", // Placeholder video
       date: "Julho, 2025",
-      description: "Mariana Souza apresenta as conquistas, leis aprovadas e a destinação de emendas parlamentares durante seu mandato participativo."
+      description: `${candidateConfig.name} apresenta as conquistas, leis aprovadas e a destinação de emendas parlamentares durante seu mandato participativo.`
     },
     {
       title: "Pronunciamento na Câmara sobre a Casa do Autista",
@@ -33,7 +34,7 @@ export default function Videos() {
     <>
       <SEO 
         title="Galeria de Vídeos" 
-        description="Acompanhe discursos, entrevistas, debates e prestação de contas de Mariana Souza através de nossa galeria de vídeos."
+        description={`Acompanhe discursos, interviews, debates e prestação de contas de ${candidateConfig.name} através de nossa galeria de vídeos.`}
       />
 
       {/* Page Header */}

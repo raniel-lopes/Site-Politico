@@ -37,7 +37,8 @@ export default function SEO({ title, description, image, url }: SEOProps) {
 
     const ogImage = document.querySelector('meta[property="og:image"]') || document.createElement('meta');
     ogImage.setAttribute('property', 'og:image');
-    ogImage.setAttribute('content', image || 'https://via.placeholder.com/1200x630.png?text=Mariana+Souza+2026');
+    const defaultImage = `${window.location.origin}/logo.png`;
+    ogImage.setAttribute('content', image || defaultImage);
     if (!ogImage.parentNode) document.head.appendChild(ogImage);
 
     const ogUrl = document.querySelector('meta[property="og:url"]') || document.createElement('meta');

@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, Share2, MessageSquare, Facebook } from 'lucide-react';
 import { apiFetch } from '../utils/api.js';
 import SEO from '../components/SEO.js';
+import { candidateConfig } from '../config/candidate.js';
 
 export default function NoticiaDetalhe() {
   const { slug } = useParams<{ slug: string }>();
@@ -21,22 +22,22 @@ export default function NoticiaDetalhe() {
         // Fallback Mock data
         const mockNews = [
           {
-            title: "Mariana Souza defende a ampliação do programa Tecnologia Ativa nas escolas estaduais da Bahia",
-            slug: "mariana-defende-tecnologia-ativa-na-bahia",
-            summary: "Após aprovar o projeto em Salvador, a vereadora reuniu-se com lideranças educacionais de Feira de Santana para planejar a extensão do acesso digital para alunos da rede estadual.",
+            title: `${candidateConfig.name} defende a ampliação do programa Tecnologia Ativa nas escolas estaduais da Bahia`,
+            slug: "ninho-defende-tecnologia-ativa-na-bahia",
+            summary: "Após aprovar o projeto em Salvador, o vereador reuniu-se com lideranças educacionais de Feira de Santana para planejar a extensão do acesso digital para alunos da rede estadual.",
             content: `### Tecnologia como direito social fundamental
 
-Na última terça-feira, a vereadora Mariana Souza liderou uma audiência em Salvador que reuniu especialistas, educadores e pais para debater os resultados preliminares do **Programa Tecnologia Ativa**.\n\nAprovado na Câmara Municipal de Salvador, o projeto garantiu laboratórios de programação e tablets nas escolas de periferia. Diante do sucesso estrondoso, Mariana iniciou tratativas para propor um modelo legislativo para toda a Bahia, defendendo a expansão do programa nas redes estaduais a partir de 2027.\n\n> "A exclusão digital na juventude baiana é um gargalo que limita o futuro profissional. Ensinar lógica de programação e dar acesso a computadores é a saúde social das próximas gerações."\n\nA pré-candidata participará de rodadas de encontros com secretários de educação do interior para levantar as demandas de infraestrutura.`,
+Na última terça-feira, o vereador ${candidateConfig.name} liderou uma audiência em Salvador que reuniu especialistas, educadores e pais para debater os resultados preliminares do **Programa Tecnologia Ativa**.\n\nAprovado na Câmara Municipal de Salvador, o projeto garantiu laboratórios de programação e tablets nas escolas de periferia. Diante do sucesso estrondoso, ${candidateConfig.name} iniciou tratativas para propor um modelo legislativo para toda a Bahia, defendendo a expansão do programa nas redes estaduais a partir de 2027.\n\n> "A exclusão digital na juventude baiana é um gargalo que limita o futuro profissional. Ensinar lógica de programação e dar acesso a computadores é a saúde social das próximas gerações."\n\nO pré-candidato participará de rodadas de encontros com secretários de educação do interior para levantar as demandas de infraestrutura.`,
             image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop",
             category: "Tecnologia Ativa",
             author: "Assessoria",
             createdAt: new Date().toISOString()
           },
           {
-            title: "Gabinete Mariana Souza aprova recurso de R$ 1.2 milhão para estruturar a Casa do Autista em Salvador",
+            title: `Gabinete de ${candidateConfig.name} aprova recurso de R$ 1.2 milhão para estruturar a Casa do Autista em Salvador`,
             slug: "aprovado-recurso-casa-do-autista",
             summary: "Os fundos municipais serão direcionados à aquisição de equipamentos clínicos e qualificação da equipe técnica. A proposta visa tornar-se um modelo estadual de acolhimento para o autismo.",
-            content: `O mandato da vereadora Mariana Souza obteve uma vitória marcante para a saúde e direitos sociais em Salvador. O remanejamento orçamentário no valor de **R$ 1.2 milhão** foi totalmente aprovado e será destinado para estruturar e iniciar o funcionamento da **Casa do Autista**.\n\nO espaço servirá de ponto focal para acolhimento de crianças e adultos com Transtorno do Espectro Autista (TEA), disponibilizando atendimento multidisciplinar composto por psicólogos, terapeutas ocupacionais e fonoaudiólogos.\n\nMariana Souza ressaltou que esse projeto é um piloto inovador: "Em Salvador iniciamos essa semente de acolhimento gratuito e integral. Nosso objetivo, ao buscar uma vaga na ALBA, é descentralizar esses centros terapêuticos especializados para atender a todo o Recôncavo e interior da Bahia".`,
+            content: `O mandato do vereador ${candidateConfig.name} obteve uma vitória marcante para a saúde e direitos sociais em Salvador. O remanejamento orçamentário no valor de **R$ 1.2 milhão** foi totalmente aprovado e será destinado para estruturar e iniciar o funcionamento da **Casa do Autista**.\n\nO espaço servirá de ponto focal para acolhimento de crianças e adultos com Transtorno do Espectro Autista (TEA), disponibilizando atendimento multidisciplinar composto por psicólogos, terapeutas ocupacionais e fonoaudiólogos.\n\n${candidateConfig.name} ressaltou que esse projeto é um piloto inovador: "Em Salvador iniciamos essa semente de acolhimento gratuito e integral. Nosso objetivo, ao buscar uma vaga na ALBA, é descentralizar esses centros terapêuticos especializados para atender a todo o Recôncavo e interior da Bahia".`,
             image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=800&auto=format&fit=crop",
             category: "Direitos e Inclusão",
             author: "Assessoria",
@@ -59,7 +60,7 @@ Na última terça-feira, a vereadora Mariana Souza liderou uma audiência em Sal
   }, [slug, navigate]);
 
   const handleShareWhatsApp = () => {
-    const text = `Confira esta notícia sobre o mandato de Mariana Souza: ${article.title}\n\nLeia no site: ${window.location.href}`;
+    const text = `Confira esta notícia sobre o mandato de ${candidateConfig.name}: ${article.title}\n\nLeia no site: ${window.location.href}`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
   };
 

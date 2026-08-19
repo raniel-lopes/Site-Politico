@@ -85,7 +85,7 @@ export default function NossosProjetos() {
     <>
       <SEO 
         title="Projetos de Lei" 
-        description="Conheça os projetos de lei, propostas de emendas e indicações do mandato de Mariana Souza em Salvador e para a Bahia."
+        description={`Conheça os projetos de lei, propostas de emendas e indicações do mandato de ${candidateConfig.name} em Salvador e para a Bahia.`}
       />
 
       {/* Page Header */}

@@ -54,7 +54,7 @@ export default function Contato() {
     <>
       <SEO 
         title="Contato" 
-        description="Fale diretamente com o gabinete da vereadora Mariana Souza: envie sugestões de projetos de lei, reclamações e ofícios."
+        description={`Fale diretamente com o gabinete do vereador ${candidateConfig.name}: envie sugestões de projetos de lei, reclamações e ofícios.`}
       />
 
       {/* Page Header */}

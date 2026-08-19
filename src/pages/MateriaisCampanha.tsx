@@ -1,10 +1,11 @@
 import SEO from '../components/SEO.js';
 import { Download, Image, FileText, CheckCircle } from 'lucide-react';
+import { candidateConfig } from '../config/candidate.js';
 
 export default function MateriaisCampanha() {
   const assets = [
     {
-      title: "Fotos Oficiais Mariana Souza",
+      title: `Fotos Oficiais ${candidateConfig.name}`,
       type: "Imagens Alta Resolução",
       format: "ZIP / JPG (50MB)",
       description: "Imagens do candidato em reuniões comunitárias, tribuna e retrato oficial de estúdio para divulgação na imprensa."
@@ -33,7 +34,7 @@ export default function MateriaisCampanha() {
     <>
       <SEO 
         title="Materiais de Campanha" 
-        description="Acesse e baixe fotos oficiais, logotipos, panfletos informativos e kits digitais do mandato de Mariana Souza."
+        description={`Acesse e baixe fotos oficiais, logotipos, panfletos informativos e kits digitais do mandato de ${candidateConfig.name}.`}
       />
 
       {/* Page Header */}

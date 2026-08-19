@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Shield, AlertCircle, EyeOff, Send } from 'lucide-react';
 import { apiFetch } from '../utils/api.js';
 import SEO from '../components/SEO.js';
+import { candidateConfig } from '../config/candidate.js';
 
 export default function FacaDenuncia() {
   const [isAnonymous, setIsAnonymous] = useState(true);
@@ -27,31 +28,41 @@ export default function FacaDenuncia() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.description || !formData.location) {
+      setFormStatus({
+        type: 'error',
+        message: 'Por favor, preencha a descrição e o local do ocorrido.'
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    setFormStatus({ type: null, message: '' });
-
     try {
-      const payload = {
-        isAnonymous,
-        description: formData.description,
-        location: formData.location,
-        ...(isAnonymous ? {} : {
-          reporterName: formData.reporterName,
-          reporterEmail: formData.reporterEmail,
-          reporterWhatsapp: formData.reporterWhatsapp
-        })
-      };
-
-      await apiFetch('/reports', {
+      await apiFetch('/tickets', {
         method: 'POST',
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          title: 'Denúncia Anônima / Identificada',
+          description: formData.description,
+          location: formData.location,
+          reporterName: isAnonymous ? 'Anônimo' : formData.reporterName,
+          reporterEmail: isAnonymous ? undefined : formData.reporterEmail,
+          reporterPhone: isAnonymous ? undefined : formData.reporterWhatsapp,
+        })
       });
 
       setFormStatus({
         type: 'success',
-        message: 'Denúncia registrada com sucesso! Nosso gabinete fará a devida triagem e acionará os órgãos responsáveis protegendo sua identidade.'
+        message: 'Denúncia enviada com sucesso ao nosso gabinete de fiscalização. Agradecemos sua cidadania.'
       });
-      setFormData({ reporterName: '', reporterEmail: '', reporterWhatsapp: '', description: '', location: '' });
+
+      // Clear description/location
+      setFormData({
+        reporterName: '',
+        reporterEmail: '',
+        reporterWhatsapp: '',
+        description: '',
+        location: ''
+      });
     } catch (err: any) {
       setFormStatus({
         type: 'error',
@@ -66,7 +77,7 @@ export default function FacaDenuncia() {
     <>
       <SEO 
         title="Fazer Denúncia" 
-        description="Canal de denúncias seguro do Gabinete de Mariana Souza. Relate violações de direitos ou abandono de serviços públicos de forma totalmente anônima."
+        description={`Canal de denúncias seguro do Gabinete de ${candidateConfig.name}. Relate violações de direitos ou abandono de serviços públicos de forma totalmente anônima.`}
       />
 
       {/* Page Header */}
